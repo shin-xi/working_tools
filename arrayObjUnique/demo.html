@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+<script src="arrayObjUnique.js"></script>
+<script>
+    let songs = [
+        { title: "Song", artist: "Artist", likes: 1, id: 1 },
+        { title: "Chanson", artist: "Artiste", likes: 3, id: 1 },
+        { title: "ABC", artist: "OneTwoThree", likes: 2, id: 2 },
+        { title: "Trash", artist: "Meek Mill", likes: 0, id: 3 }
+    ];
+    console.log(songs);
+    let res = new ArrayObjUnique(songs, 'id').filter();
+    console.log(res);
+</script>
+</body>
+
+</html>
