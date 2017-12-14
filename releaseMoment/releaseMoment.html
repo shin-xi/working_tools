@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -12,7 +12,8 @@
 <script>
     const nowTime = new Date(2017, 0, 1, 0, 0).getTime();//获取当前时间转换成时间戳
     const releaseTime = new Date(2016, 11, 31, 0, 0).getTime();//设置发布时间为2016年11月25日11点25分转换时间戳
-    console.log(new ReleaseMoment(nowTime, releaseTime).elapsedTime());
+    console.log(new ReleaseMoment(releaseTime, nowTime).elapsedTime());
+    console.log(new ReleaseMoment(releaseTime).elapsedTime());
 </script>
 </body>
 </html>

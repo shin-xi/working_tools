@@ -14,8 +14,8 @@ class ReleaseMoment {
     _nowSeconds: number;
     _releaseSeconds: number;
 
-    constructor(private nowTime: number,
-                private releaseTime: number) {
+    constructor(private releaseTime: number,
+                private nowTime: number = new Date().getTime()) {
         this._nowTime = new Date(nowTime);
         this._releaseTime = new Date(releaseTime);
         this._nowYear = this._nowTime.getFullYear();

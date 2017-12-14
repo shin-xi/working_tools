@@ -1,7 +1,8 @@
 var ReleaseMoment = /** @class */ (function () {
-    function ReleaseMoment(nowTime, releaseTime) {
-        this.nowTime = nowTime;
+    function ReleaseMoment(releaseTime, nowTime) {
+        if (nowTime === void 0) { nowTime = new Date().getTime(); }
         this.releaseTime = releaseTime;
+        this.nowTime = nowTime;
         this._nowTime = new Date(nowTime);
         this._releaseTime = new Date(releaseTime);
         this._nowYear = this._nowTime.getFullYear();
