@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/rxjs/6.0.0-alpha.0/Rx.min.js"></script>
+</head>
+
+<body>
+    <script>
+    var oldList = [1, 2, 3, 4, 2];
+    var newList = [];
+    Rx.Observable.of(...oldList.reverse())
+        .distinct()
+        .subscribe(x => newList.push(x));
+    oldList = newList.reverse()
+    console.log(oldList);
+
+    var oldObjList = [
+        { age: 1, name: 'Foo' },
+        { age: 2, name: 'Bar' },
+        { age: 3, name: 'Foo' },
+        { age: 4, name: 'Foo' },
+        { age: 2, name: 'Foo' }
+    ];
+    var newObjList = [];
+    Rx.Observable.of(...oldObjList.reverse())
+        .distinct((p) => p.age)
+        .subscribe((x) => newObjList.push(x));
+    oldObjList = newObjList.reverse()
+    console.log(oldObjList);
+    </script>
+</body>
+
+</html>
