@@ -16,14 +16,15 @@ var HistoryRecord = /** @class */ (function () {
         }
         return invHis;
     };
-    HistoryRecord.prototype.setHis = function (invHis) {
+    HistoryRecord.prototype.setHis = function (invHis, _a) {
+        var _b = (_a === void 0 ? {} : _a).amount, amount = _b === void 0 ? this.amount : _b;
         this.removeHisAll();
         invHis = invHis.map(function (v) { return v.replace(/['\t]/g, '').replace(/\s*/g, ''); });
         invHis = Array.from(new Set(invHis.reverse())).reverse().filter(function (value) { return value !== undefined && value !== null && value !== ''; });
-        if (invHis.length > 5) {
-            invHis = invHis.slice(-this.amount);
+        if (invHis.length > amount) {
+            invHis = invHis.slice(-amount);
         }
-        for (var i = 0, item = void 0, len = invHis.length; i < len; i++) {
+        for (var i = 0, len = invHis.length; i < len; i++) {
             localStorage.setItem("history-" + i, invHis[i]);
         }
         return this.getHis();

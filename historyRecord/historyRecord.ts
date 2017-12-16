@@ -18,17 +18,17 @@ class HistoryRecord {
         return invHis;
     }
 
-    setHis(invHis): any[] {
+    setHis(invHis, { amount = this.amount } = {}): any[] {
         this.removeHisAll();
 
         invHis = invHis.map((v) => v.replace(/['\t]/g, '').replace(/\s*/g, ''));
         invHis = Array.from(new Set(invHis.reverse())).reverse().filter((value) => value !== undefined && value !== null && value !== '');
 
-        if (invHis.length > 5) {
-            invHis = invHis.slice(-this.amount);
+        if (invHis.length > amount) {
+            invHis = invHis.slice(-amount);
         }
 
-        for (let i = 0, item, len = invHis.length; i < len; i++) {
+        for (let i = 0, len = invHis.length; i < len; i++) {
             localStorage.setItem(`history-${i}`, invHis[i]);
         }
 
