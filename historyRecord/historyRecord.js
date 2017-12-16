@@ -18,6 +18,7 @@ var HistoryRecord = /** @class */ (function () {
     };
     HistoryRecord.prototype.setHis = function (invHis) {
         this.removeHisAll();
+        invHis = invHis.map(function (v) { return v.replace(/['\t]/g, '').replace(/\s*/g, ''); });
         invHis = Array.from(new Set(invHis.reverse())).reverse().filter(function (value) { return value !== undefined && value !== null && value !== ''; });
         if (invHis.length > 5) {
             invHis = invHis.slice(-this.amount);
